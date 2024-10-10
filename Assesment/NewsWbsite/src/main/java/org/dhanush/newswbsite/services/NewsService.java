@@ -21,14 +21,19 @@ import java.util.List;
 @Transactional
 public class NewsService {
     @Autowired
-    private NewsRepository newsRepository;
+    private final NewsRepository newsRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    private CommentRepository commentRepository;
+    private final CommentRepository commentRepository;
 
+    public NewsService(NewsRepository newsRepository, CategoryRepository categoryRepository, CommentRepository commentRepository) {
+        this.newsRepository = newsRepository;
+        this.categoryRepository = categoryRepository;
+        this.commentRepository = commentRepository;
+    }
 
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();

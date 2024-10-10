@@ -18,28 +18,32 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class NewsController {
     @Autowired
-    private NewsService newsService;
-    @GetMapping("/categories")
+    private final NewsService newsService;
+    public NewsController(NewsService newsService) {
+        this.newsService = newsService;
+    }
+
+    @GetMapping(value = "categories")
     public List<Category> getCategories() {
         return newsService.getAllCategories();
     }
 
-    @GetMapping("/categories/{categoryId}/news")
+    @GetMapping(value = "categories/{categoryId}/news")
     public List<News> getNewsByCategory(@PathVariable int categoryId) {
         return newsService.getNewsByCategory(categoryId);
     }
 
-    @GetMapping("/news/{newsId}")
+    @GetMapping(value = "news/{newsId}")
     public News getNewsDetails(@PathVariable int newsId) {
         return newsService.getNewsById(newsId);
     }
 
-    @PostMapping("/news/{newsId}/comments")
+    @PostMapping(value = "news/{newsId}/comments")
     public void addComment(@PathVariable int newsId, @RequestBody Comment comment) {
         newsService.addComment(newsId, comment);
     }
 
-    @GetMapping("/news/{newsId}/comments")
+    @GetMapping(value = "news/{newsId}/comments")
     public List<Comment> getComments(@PathVariable int newsId) {
         return newsService.getCommentsByNewsId(newsId);
     }

@@ -12,10 +12,8 @@ import java.util.List;
  * Author Dhanush
  * Created At 10/10/2024 11:41
  */
-
 @Repository
 public interface NewsRepository extends JpaRepository<News, Integer> {
     @Query("SELECT n FROM News n JOIN n.categories c WHERE c.id = :categoryId")
     List<News> findNewsByCategory(@Param("categoryId") int categoryId);
-
 }

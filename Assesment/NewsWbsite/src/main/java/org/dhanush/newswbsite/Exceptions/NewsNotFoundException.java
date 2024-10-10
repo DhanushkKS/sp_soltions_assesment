@@ -6,12 +6,10 @@ package org.dhanush.newswbsite.Exceptions;
  */
 public class NewsNotFoundException extends RuntimeException {
 
-    // Default constructor with a default message
     public NewsNotFoundException() {
         super("News item not found.");
     }
 
-    // Constructor that accepts a custom message
     public NewsNotFoundException(String message) {
         super(message);
     }
