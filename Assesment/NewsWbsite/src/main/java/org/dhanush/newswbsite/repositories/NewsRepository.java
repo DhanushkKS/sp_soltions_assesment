@@ -1,7 +1,5 @@
 package org.dhanush.newswbsite.repositories;
 
-import org.dhanush.newswbsite.Entities.Category;
-import org.dhanush.newswbsite.Entities.Comment;
 import org.dhanush.newswbsite.Entities.News;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
