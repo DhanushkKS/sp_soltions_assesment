@@ -17,10 +17,8 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String author;
     private String comment;
-
     @ManyToOne
     @JoinColumn(name = "news_id")
     private News news;

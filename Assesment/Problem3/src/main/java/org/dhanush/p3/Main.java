@@ -1,9 +1,6 @@
 package org.dhanush.p3;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-
     public static int[] countFibonacci(int n) {
         int[] fibonacciNumbers = new int[n];
 
@@ -13,7 +10,6 @@ public class Main {
         for (int i = 2; i < n; i++) {
             fibonacciNumbers[i] = fibonacciNumbers[i - 1] + fibonacciNumbers[i - 2];
         }
-
         return fibonacciNumbers;
     }
 

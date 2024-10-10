@@ -10,7 +10,6 @@ import org.dhanush.newswbsite.repositories.CommentRepository;
 import org.dhanush.newswbsite.repositories.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -22,13 +21,10 @@ import java.util.List;
 public class NewsService {
     @Autowired
     private final NewsRepository newsRepository;
-
     @Autowired
     private final CategoryRepository categoryRepository;
-
     @Autowired
     private final CommentRepository commentRepository;
-
     public NewsService(NewsRepository newsRepository, CategoryRepository categoryRepository, CommentRepository commentRepository) {
         this.newsRepository = newsRepository;
         this.categoryRepository = categoryRepository;
@@ -38,21 +34,17 @@ public class NewsService {
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
-
     public List<News> getNewsByCategory(int categoryId) {
         return newsRepository.findNewsByCategory(categoryId);
     }
-
     public News getNewsById(int newsId) {
         return newsRepository.findById(newsId).orElseThrow(() -> new NewsNotFoundException("News item with ID " + newsId + " not found."));
     }
-
     public void addComment(int newsId, Comment comment) {
         News news = getNewsById(newsId);
         comment.setNews(news);
         commentRepository.save(comment);
     }
-
     public List<Comment> getCommentsByNewsId(int newsId) {
         return commentRepository.findCommentsByNewsId(newsId);
     }

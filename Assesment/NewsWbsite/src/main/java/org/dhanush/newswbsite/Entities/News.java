@@ -19,12 +19,9 @@ public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String title;
-
     @Lob
     private String content;
-
     @ManyToMany
     @JoinTable(name = "news_categories",
             joinColumns = @JoinColumn(name = "news_id"),

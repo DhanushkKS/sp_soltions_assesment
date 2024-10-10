@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
     public static void findCombinations(int[] numbers, int target) {
         List<String> results = new ArrayList<>();
         findCombinationsRecursive(results, numbers, "", 0, 0, 0, target);
-
         for (String expr : results) {
             System.out.println(expr + " = " + target);
         }
@@ -43,7 +41,6 @@ public class Main {
     public static void main(String[] args) {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int target = 99;
-
         findCombinations(numbers, target);
 
     }
